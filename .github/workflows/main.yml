@@ -29,15 +29,15 @@ jobs:
         # If your function app project is not located in your repository's root
         # Please change the path to your directory for docker build
         docker login docker.io --username ${{ secrets.REGISTRY_USERNAME }} --password-stdin < ${{ secrets.REGISTRY_PASSWORD }}
-        docker build . -t docker.io/amrutakawade/azurefunctionsimage:latest
-        docker push docker.io/amrutakawade/azurefunctionsimage:latest
+        docker build . -t docker.io/dinesh516/githubcontainerfunctionapp:latest
+        docker push docker.io/dinesh516/githubcontainerfunctionapp:latest
         
     - name: 'Run Azure Functions Container Action'
       uses: Azure/functions-container-action@v1
       id: fa
       with:
         app-name: containerfunapp
-        image: amrutakawade/azurefunctionsimage:latest
+        image: dinesh516/githubcontainerfunctionapp:latest
     #- name: 'use the published functionapp url in upcoming steps'
     #  run: |
     #    echo "${{ steps.fa.outputs.app-url }}"
