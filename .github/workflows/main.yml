@@ -27,7 +27,7 @@ jobs:
       shell: bash
       run: |
         # If your function app project is not located in your repository's root
-        # Please change the path to your directory for docker build
+        # Please change the path to your directory for docker build.
         docker login docker.io -u ${{ secrets.REGISTRY_USERNAME }} -p ${{ secrets.REGISTRY_PASSWORD }}
         docker build . -t docker.io/amrutakawade/azurefunctionsimage:latest
         docker push docker.io/amrutakawade/azurefunctionsimage:latest
